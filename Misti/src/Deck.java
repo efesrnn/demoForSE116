@@ -5,7 +5,7 @@ public class Deck {
     private Scanner scanner;
 
     public Deck() {
-        String[] suit = {"♠", "♣", "H", "♦"};
+        String[] suit = {"♠", "♣", "♥", "♦"};
         String[] number = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         allCards = new ArrayList<Card>();
 
