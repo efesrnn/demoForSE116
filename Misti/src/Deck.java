@@ -51,7 +51,7 @@ public class Deck {
     }
 
     public void deal ( Novice novice , Regular regular, Expert expert, Human human ){
-        for (int i = allCards.size() - 1; i >= allCards.size() - 12; i = i - 4) {
+        for (int i = allCards.size() - 1; i >= allCards.size() - 16; i = i - 4) {
             novice.cardsOnHand.add(allCards.get(i - 3));
             regular.cardsOnHand.add(allCards.get(i - 2));
             expert.cardsOnHand.add(allCards.get(i - 1));
@@ -60,7 +60,7 @@ public class Deck {
 
     }
 
-    /*public void printCardsOnHand(Novice novice, Regular regular, Expert expert, Human human) {
+    public void printCardsOnHand(Novice novice, Regular regular, Expert expert, Human human) {
         System.out.println("Cards on hand for Novice:");
         for (Card card : novice.cardsOnHand) {
             System.out.println(card.toString());
@@ -81,6 +81,5 @@ public class Deck {
             System.out.println(card.toString());
         }
     }
-*/
 
 }
