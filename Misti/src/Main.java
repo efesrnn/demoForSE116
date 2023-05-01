@@ -3,8 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 public class Main {
     public static void main(String[] args) {
+        String filePath = "C:\\Users\\efese\\OneDrive\\Masaüstü\\points.txt";
+        PointFileReader pointFileReader = new PointFileReader(filePath);
+
         List<Players> players = Arrays.asList(new Novice(), new Regular(), new Expert(), new Human());
-        Game game = new Game("pointValues.txt", players);
+        Game game = new Game("points.txt", players);
         game.play();
 
         Deck deck = new Deck();
