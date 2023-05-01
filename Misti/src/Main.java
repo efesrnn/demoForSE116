@@ -13,7 +13,7 @@ public class Main {
         deck.cut();
         deck.deal(novice, regular, expert, human);
 
-        // deck.printCardsOnHand(novice, regular, expert, human);
+        deck.printCardsOnHand(novice, regular, expert, human);
 
         
     }

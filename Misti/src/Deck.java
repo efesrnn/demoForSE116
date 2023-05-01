@@ -60,7 +60,7 @@ public class Deck {
 
     }
 
-    /*public void printCardsOnHand(Novice novice, Regular regular, Expert expert, Human human) {
+    public void printCardsOnHand(Novice novice, Regular regular, Expert expert, Human human) {
         System.out.println("Cards on hand for Novice:");
         for (Card card : novice.cardsOnHand) {
             System.out.println(card.toString());
@@ -81,6 +81,5 @@ public class Deck {
             System.out.println(card.toString());
         }
     }
-*/
 
 }
