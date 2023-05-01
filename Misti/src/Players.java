@@ -4,6 +4,6 @@ public class Players {
 
     public ArrayList<Card> cardsOnHand = new ArrayList<Card>();
     public ArrayList<Card> gatheredCards = new ArrayList<Card>();
-    public int points;
+    public ArrayList<Card> cardsOnArea = new ArrayList<Card>();
     public int pistiCounter;
 }
