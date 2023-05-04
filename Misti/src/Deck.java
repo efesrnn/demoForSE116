@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Deck {
-    private ArrayList<Card> allCards;
+    public ArrayList<Card> allCards;
     private Scanner scanner;
 
     public Deck() {

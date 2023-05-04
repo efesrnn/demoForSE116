@@ -18,6 +18,7 @@ public class Main {
         Human human = new Human();
         Novice novice = new Novice();
         Regular regular = new Regular();
+        Players playersClass = new Players();
 
         deck.shuffle();
         deck.cut();
@@ -25,10 +26,16 @@ public class Main {
 
         //deck.printCardsOnHand(novice, regular, expert, human);
 
+        for (int i = 0; i < 4; i++) {  // a for loop to deal 4 cards on the board
+            Card cardToAdd = deck.allCards.get(deck.allCards.size() - 1);
+            deck.allCards.remove(cardToAdd);
+            playersClass.cardsOnArea.add(cardToAdd);
+        }
+
         // isterseniz deneyin dnemek için yazdım alt kısmı
-       /* for (int i = 0; i < players.cardsOnArea.size(); i++) {
-            System.out.print(players.cardsOnArea.get(i).getSuit() + players.cardsOnArea.get(i).getNumber() + " ");
-            if (i == players.cardsOnArea.size() - 1) {
+        for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
+            System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
+            if (i == playersClass.cardsOnArea.size() - 1) {
                 System.out.println();
             }
         }
@@ -44,16 +51,14 @@ public class Main {
         System.out.println();
         System.out.println("Please choose the card you want to play.<3 ");
         int selectedCard = scanner.nextInt();
-        human.humanPlayer(selectedCard-1 , players);
+        human.humanPlayer(selectedCard-1 , playersClass);
         System.out.println("<-<-<-<-<-<->BOARD<->->->->->->");
-        for (int i = 0; i < players.cardsOnArea.size(); i++) {
-            System.out.print(players.cardsOnArea.get(i).getSuit() + players.cardsOnArea.get(i).getNumber() + " ");
+        for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
+            System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
             System.out.println();
         }
         System.out.println();
-*/
 
-        
     }
 
 }
