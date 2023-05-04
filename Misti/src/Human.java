@@ -1,4 +1,9 @@
 public class Human extends Players {
+    private PointFileReader pointFileReader;
+
+    public Human(PointFileReader pointFileReader) {
+        this.pointFileReader = pointFileReader;
+    }
     public void humanPlayer(int playedCard, Players players) {
         if (cardsOnArea.isEmpty()) {
             cardsOnArea.add(cardsOnHand.get(playedCard));

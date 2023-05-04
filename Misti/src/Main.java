@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -8,30 +8,28 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         PointFileReader pointFileReader = new PointFileReader("C:\\Users\\efese\\OneDrive\\Masaüstü\\points.txt");
         pointFileReader.printPointValues();
-        List<Players> players = Arrays.asList(new Novice(), new Regular(), new Expert(), new Human());
+        List<Players> players = Arrays.asList(new Novice(), new Regular(), new Expert(), new Human(pointFileReader));
         Game game = new Game("points.txt", players);
         game.play();
 
         Deck deck = new Deck();
 
         Expert expert = new Expert();
-        Human human = new Human();
+        Human human = new Human(pointFileReader);
         Novice novice = new Novice();
         Regular regular = new Regular();
         Players playersClass = new Players();
 
-
-
         deck.shuffle();
         deck.cut();
-        deck.deal(novice, regular, expert, human);
+        deck.deal(novice, regular, expert, human, playersClass);
 
-        //deck.printCardsOnHand(novice, regular, expert, human);
-
-        for (int i = 0; i < 4; i++) {  // a for loop to deal 4 cards on the board
-            Card cardToAdd = deck.allCards.get(deck.allCards.size() - 1);
-            deck.allCards.remove(cardToAdd);
-            playersClass.cardsOnArea.add(cardToAdd);
+        // Print initial board state
+        for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
+            System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
+            if (i == playersClass.cardsOnArea.size() - 1) {
+                System.out.println();
+            }
         }
 
         // isterseniz deneyin dnemek için yazdım alt kısmı
@@ -57,10 +55,8 @@ public class Main {
         System.out.println("<-<-<-<-<-<->BOARD<->->->->->->");
         for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
             System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
-            System.out.println();
         }
         System.out.println();
 
     }
-
 }
