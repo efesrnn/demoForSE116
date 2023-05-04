@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Deck {
     public ArrayList<Card> allCards;
-    private Scanner scanner;
+    public Scanner scanner;
 
     public Deck() {
         String[] suit = {"♠", "♣", "♥", "♦"};

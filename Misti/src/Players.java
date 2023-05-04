@@ -9,6 +9,7 @@ public class Players {
     public int lastWinner = -1;
     public int pistiCounter;
 
+
     // checks the gatheredCards[] if i gained special cards and calculates points needed
     // player who wins the last round gets the cards ( lastWinner: 0 or 1 ) needed
 }

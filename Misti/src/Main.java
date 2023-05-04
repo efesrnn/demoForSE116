@@ -20,6 +20,8 @@ public class Main {
         Regular regular = new Regular();
         Players playersClass = new Players();
 
+
+
         deck.shuffle();
         deck.cut();
         deck.deal(novice, regular, expert, human);
@@ -51,7 +53,7 @@ public class Main {
         System.out.println();
         System.out.println("Please choose the card you want to play.<3 ");
         int selectedCard = scanner.nextInt();
-        human.humanPlayer(selectedCard-1 , playersClass);
+        human.humanPlayer(selectedCard - 1, playersClass);
         System.out.println("<-<-<-<-<-<->BOARD<->->->->->->");
         for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
             System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
