@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,9 +51,19 @@ public class Main {
             System.out.print(" " + (i + 1) + " ");
         }
         System.out.println();
-        System.out.println("Please choose the card you want to play.<3 ");
-        int selectedCard = scanner.nextInt();
-        human.humanPlayer(selectedCard - 1, playersClass);
+        int selectedCard = -1;
+        while (selectedCard < 1 || selectedCard > playersClass.cardNum) {
+            System.out.println("Please choose a card between 1 and " + playersClass.cardNum + ": ");
+            try {
+                selectedCard = scanner.nextInt();
+                if (selectedCard < 1 || selectedCard > playersClass.cardNum) {
+                    System.out.println("Invalid input. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please try again.");
+                scanner.next(); // clear the input buffer
+            }
+        }
         System.out.println("<-<-<-<-<-<->BOARD<->->->->->->");
         for (int i = 0; i < playersClass.cardsOnArea.size(); i++) {
             System.out.print(playersClass.cardsOnArea.get(i).getSuit() + playersClass.cardsOnArea.get(i).getNumber() + " ");
