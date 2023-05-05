@@ -1,6 +1,7 @@
 import java.util.List;
 
-public class Game { private Deck deck;
+public class Game {
+    private Deck deck;
 
     private List<Players> players;
     private PointFileReader pointValueFileReader;

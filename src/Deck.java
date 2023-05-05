@@ -50,16 +50,25 @@ public class Deck {
         }
     }
 
-    public void deal ( Novice novice , Regular regular, Expert expert, Human human ){
-        for (int i = allCards.size() - 1; i >= allCards.size() - 16; i = i - 4) {
+    public void deal(Novice novice, Regular regular, Expert expert, Human human, Players players) {
+        // Deal cards to players
+        for (int i = allCards.size() - 1; i >= allCards.size() - 16; i -= 4) {
             novice.cardsOnHand.add(allCards.get(i - 3));
             regular.cardsOnHand.add(allCards.get(i - 2));
             expert.cardsOnHand.add(allCards.get(i - 1));
             human.cardsOnHand.add(allCards.get(i));
         }
 
-    }
+        // Remove dealt cards from the deck
+        allCards.subList(allCards.size() - 16, allCards.size()).clear();
 
+        // Deal cards to the board
+        for (int i = 0; i < 4; i++) {
+            Card cardToAdd = allCards.get(allCards.size() - 1);
+            allCards.remove(cardToAdd);
+            players.cardsOnArea.add(cardToAdd);
+        }
+    }
     /*public void printCardsOnHand(Novice novice, Regular regular, Expert expert, Human human) {
         System.out.println("Cards on hand for Novice:");
         for (Card card : novice.cardsOnHand) {
