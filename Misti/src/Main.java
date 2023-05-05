@@ -6,16 +6,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        PointFileReader pointFileReader = new PointFileReader("C:\\Users\\efese\\OneDrive\\Masaüstü\\points.txt");
+        /*PointFileReader pointFileReader = new PointFileReader("C:\\Users\\efese\\OneDrive\\Masaüstü\\points.txt");
         pointFileReader.printPointValues();
         List<Players> players = Arrays.asList(new Novice(), new Regular(), new Expert(), new Human(pointFileReader));
         Game game = new Game("points.txt", players);
-        game.play();
+        game.play();*/
 
         Deck deck = new Deck();
 
         Expert expert = new Expert();
-        Human human = new Human(pointFileReader);
+        //Human human = new Human(pointFileReader);
+        Human human = new Human();
         Novice novice = new Novice();
         Regular regular = new Regular();
         Players playersClass = new Players();
