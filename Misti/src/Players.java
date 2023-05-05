@@ -5,7 +5,7 @@ public class Players {
     public ArrayList<Card> gatheredCards;
     public int pistiCounter;
     public int cardNum;
-    public int lastWinner;
+    public int lastWinner = -1; // 0:regular , 1:human, 2:novice, 3:expert earns the last rounds cards
     public static ArrayList<Card> cardsOnArea; // Make cardsOnArea static
 
     public Players() {
