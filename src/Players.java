@@ -16,7 +16,7 @@ public class Players {
         cardsOnHand = new ArrayList<>();
         gatheredCards = new ArrayList<>();
         pistiCounter = 0;
-        cardNum = 0;
+        cardNum = 4;
         lastWinner = 0;
         if (cardsOnArea == null) { // Initialize cardsOnArea only if it's null
             cardsOnArea = new ArrayList<>();
