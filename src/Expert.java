@@ -1,37 +1,42 @@
 import java.util.*;
 
 public class Expert extends Players{
-        private int playedCard;
-        private ArrayList<Character> leftCards= new ArrayList<Character>();
         private ArrayList<Integer> cardsOnHandNumbers = new ArrayList<>();
-
         private int[] leftCardsNumbers = new int[13];
-
-        private int point; // şimdilik gerçek puanı koymak yerine sahte bir point koyuyorum gerçeğini koyup test ederiz sora
-        public void expertBot(Players players) {
-            Random rd = new Random();
-            int random= rd.nextInt(cardsOnHand.size());
-            int counter=0;
+        private int counter;
+        public void expertBot() {
             for(int i=0;i<cardsOnHand.size()+counter;i++) {//burada elimizdeki herhangi bir kart üstteki kartla uyuşuyormu diye bakıyoruz.
+                int counter=0;
+                if(cardsOnArea.isEmpty()){
+                    continue;
+                }
                 if (i< cardsOnHand.size()&&cardsOnArea.get(cardsOnArea.size() - 1).toString().indexOf(1) ==cardsOnHand.get(i).toString().indexOf(1)){
-                    playedCard=i;
+                    if(cardsOnArea.isEmpty()){
+                        continue;
+                    }
                     if(cardsOnArea.size()==1){
                         pistiCounter++;
                     }
                     cardNum--;
+                    cardsOnArea.add(cardsOnHand.get(i));
                     cardsOnHand.remove(i);
                     lastWinner=3;
                     gatheredCards.addAll(cardsOnArea);
+                    cardsOnArea.clear();
                     break;
                 }
 
                 if(i>cardsOnHand.size()-2){counter++;}//eğer öncelikli kart bulunamadıysa joker için arttırıyoruz counterı
                 if(i>cardsOnHand.size()-2&&cardsOnHand.get(i-3).getNumber().equals("J")) {
-                    playedCard=i-3;
+                    if(cardsOnArea.isEmpty()){
+                        continue;
+                    }
+                    cardsOnArea.add(cardsOnHand.get(i-3));
                     cardsOnHand.remove(i-3);
                     cardNum--;
-                    lastWinner=1;
+                    lastWinner=3;
                     gatheredCards.addAll(cardsOnArea);
+                    cardsOnArea.clear();
                     break;
                 } else if(counter==cardsOnHand.size()) {//asıl olay burada başlıyor
                     cardsOnHandNumbers.clear();
@@ -60,13 +65,15 @@ public class Expert extends Players{
 
                     for(int j=0;j<cardsOnHand.size();j++){
                         int number;
-                        if(cardsOnHand.get(j).getNumber().equals("K")){number=12;}
+                        if (cardsOnHand.get(j).getNumber().equals("K")){number=12;}
                         else if (cardsOnHand.get(j).getNumber().equals("Q")){number=11;}
                         else if(cardsOnHand.get(j).getNumber().equals("J")){number=10;}
                         else {number=Integer.parseInt(cardsOnHand.get(j).getNumber());}
                         if (leftCardsNumbers[number]==cardsOnHandNumbers.get(0)){
+
                             cardsOnArea.add(cardsOnHand.get(j));
                             cardsOnHand.remove(j);
+                            lastWinner=3;
                             cardNum--;
                             break;
                         }

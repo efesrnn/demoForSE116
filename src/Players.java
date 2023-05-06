@@ -4,6 +4,7 @@ public class Players {
     public ArrayList<Card> cardsOnHand;
     public ArrayList<Card> gatheredCards;
     public int pistiCounter;
+
     public int cardNum = 4;
     public Deck deck = new Deck();
     public Deck getDeck(){
