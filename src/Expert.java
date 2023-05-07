@@ -7,9 +7,6 @@ public class Expert extends Players{
         public void expertBot() {
             for(int i=0;i<cardsOnHand.size()+counter;i++) {//burada elimizdeki herhangi bir kart üstteki kartla uyuşuyormu diye bakıyoruz.
                 int counter=0;
-                if(cardsOnArea.isEmpty()){
-                    continue;
-                }
                 if (i< cardsOnHand.size()&&cardsOnArea.get(cardsOnArea.size() - 1).toString().indexOf(1) ==cardsOnHand.get(i).toString().indexOf(1)){
                     if(cardsOnArea.isEmpty()){
                         continue;
@@ -20,7 +17,6 @@ public class Expert extends Players{
                     cardNum--;
                     cardsOnArea.add(cardsOnHand.get(i));
                     cardsOnHand.remove(i);
-                    lastWinner=3;
                     gatheredCards.addAll(cardsOnArea);
                     cardsOnArea.clear();
                     break;
@@ -34,7 +30,6 @@ public class Expert extends Players{
                     cardsOnArea.add(cardsOnHand.get(i-3));
                     cardsOnHand.remove(i-3);
                     cardNum--;
-                    lastWinner=3;
                     gatheredCards.addAll(cardsOnArea);
                     cardsOnArea.clear();
                     break;
@@ -70,10 +65,8 @@ public class Expert extends Players{
                         else if(cardsOnHand.get(j).getNumber().equals("J")){number=10;}
                         else {number=Integer.parseInt(cardsOnHand.get(j).getNumber());}
                         if (leftCardsNumbers[number]==cardsOnHandNumbers.get(0)){
-
                             cardsOnArea.add(cardsOnHand.get(j));
                             cardsOnHand.remove(j);
-                            lastWinner=3;
                             cardNum--;
                             break;
                         }

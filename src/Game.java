@@ -8,7 +8,7 @@ public class Game {
     private List<Players> players;
     private PointFileReader pointValueFileReader;
 
-    public Game(String pointValuesFilename, List<Players> players) {
+    private Game(String pointValuesFilename, List<Players> players) {
         this.deck = new Deck();
         this.players = players;
         this.pointValueFileReader = new PointFileReader(pointValuesFilename);
@@ -67,6 +67,7 @@ public class Game {
                     }
                     System.out.println();
                     int selectedCard = -1;
+
                     while (selectedCard < 1 || selectedCard > playersClass.cardNum) {
                         System.out.println("Please choose a card between 1 and " + playersClass.cardNum + ": ");
                         try {
@@ -91,7 +92,7 @@ public class Game {
         }
 
     }
-    private static int roundCalculator() {
+    private int roundCalculator() {
         return 6;
 
         // oyuncu 2 kişiyse 6 round

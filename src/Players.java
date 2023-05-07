@@ -10,7 +10,8 @@ public class Players {
     public Deck getDeck(){
         return  deck;
     }
-    public int lastWinner = -1; // 0:regular , 1:human, 2:novice, 3:expert earns the last rounds cards
+
+    public static int lastWinner = -1; // 0:player1 , 1:player2, 2:player3, 3:player4 earns the last rounds cards
     public static ArrayList<Card> cardsOnArea; // Make cardsOnArea static
 
     public Players() {
